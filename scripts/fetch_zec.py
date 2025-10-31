@@ -18,7 +18,7 @@ def fetch_zec_data():
 
     params = {
         "vs_currency": "usd",
-        "days": "max" if cg_api_key else 365 
+        "days": 365
     }
 
     if cg_api_key:
