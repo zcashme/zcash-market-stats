@@ -15,11 +15,6 @@ env/
 ENV/
 .venv
 
-# Data files (may contain processed data)
-data/raw/
-data/processed/*.csv
-# Keep data directory structure but ignore contents
-!data/processed/.gitkeep
 
 # IDE
 .vscode/
