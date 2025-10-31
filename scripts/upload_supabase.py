@@ -51,11 +51,11 @@ except Exception as e:
     print("❌ JSON encoding error:", e)
     exit()
 
-# Upload in batches
+# Upload in batches (using upsert to handle duplicates gracefully)
 batch_size = 500
 for i in range(0, len(records), batch_size):
     chunk = records[i:i + batch_size]
-    supabase.table("zcpi_data").insert(chunk).execute()
-    print(f"✅ Uploaded {len(chunk)} rows")
+    supabase.table("zcpi_data").upsert(chunk).execute()
+    print(f"✅ Uploaded/updated {len(chunk)} rows")
 
 print("🎉 Upload complete — ZCPI data is now live in Supabase!")
